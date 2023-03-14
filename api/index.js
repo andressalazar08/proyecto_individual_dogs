@@ -18,9 +18,10 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+const { conn } = require('./src/db.js'); //Aquí conectamos el servidor y la base de datos.
 
 // Syncing all the models at once.
+// Una vez hago el primer llamado a la api, pasamos a false
 conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
